@@ -24,7 +24,6 @@ def _regex_substituter(m):
     return "(?P<%s>%s)" % (n, REGEXERS[t])
 
 def translate_regex(regex):
-    if not regex.startswith("/"): return regex
     return "^%s$" % _R.sub(_regex_substituter, regex)[1:]
 
 def surl(regex, *args, **kw):
